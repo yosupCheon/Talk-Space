@@ -70,11 +70,42 @@ This is a plan for Login-Chatting web app.
 | username    | STRING OR INT | NOT NULL     |
 | room_occupy| INT | CHECK (CONTAINS <= 2)|
 
+## Fronend Pages
+#### Login Page
+- greeting, "Welcome!"
+- username input field
+- password input field
+- login button
+- create new account button
+#### Creating New Account Page
+- new username field
+- new password field
+- re-enter password field
+- register button
+#### Board Page (Successfully Log-in)
+- creating a room option button
+- join a room option button
+#### Creating a Room Page
+- room number(name) input field
+- create a room button
+#### Joining a Room Page
+- room number input field
+- join a room button
+#### Chatting Room
+- friend's chat on left side
+- my chat on right side
+- message preview bar (typed inputs)
+- message sending button
 
-## TODO:
+## TODO Documenting:
 - ~~Documenting use story and tech stacks~~
 - ~~create github project and push~~
 - ~~create and design API end-points~~
 - ~~database design~~
-- pages for frontend
-- coding
+- ~~pages for frontend~~
+
+## TOdO Coding:
+- Frontend
+- Backend
+- Database
+
