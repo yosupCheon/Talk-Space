@@ -91,7 +91,7 @@ This is a plan for Login-Chatting web app.
 #### Joining a Room Page
 - room number input field
 - join a room button
-#### Chatting Room
+#### Chatting Room Page
 - friend's chat on left side
 - my chat on right side
 - message preview bar (typed inputs)
