@@ -104,8 +104,20 @@ This is a plan for Login-Chatting web app.
 - ~~database design~~
 - ~~pages for frontend~~
 
-## TOdO Coding:
+## TODO Coding:
 - Frontend
+    - React, Typescript, HTML/CSS/BootStart
+    - for pages and emit to server
 - Backend
+    - Node, Express, Typescript, RESTapi for server
+        - maybe use ngrok for testing
+        - web hosting, cloud, after testing...
+    - for res, rep
+    - for defining dB
+    - for communicating with dB
+    - WebSocket vs Socket(io) for live-chatting
 - Database
+    - MySQL
+    - run in a docker
+    - run in a server later
 
