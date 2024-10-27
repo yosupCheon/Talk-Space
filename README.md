@@ -97,6 +97,11 @@ This is a plan for Login-Chatting web app.
 - message preview bar (typed inputs)
 - message sending button
 
+## To Create DB
+- now running locally (or test with ngrok)
+- create .env to define details in db.ts
+- and connect db and the backend
+
 ## TODO Documenting:
 - ~~Documenting use story and tech stacks~~
 - ~~create github project and push~~
@@ -117,7 +122,7 @@ This is a plan for Login-Chatting web app.
     - for communicating with dB
     - WebSocket vs Socket(io) for live-chatting
 - Database
-    - MySQL
+    - ~~MySQL~~
     - run in a docker
     - run in a server later
 
