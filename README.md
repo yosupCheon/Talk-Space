@@ -126,3 +126,6 @@ This is a plan for Login-Chatting web app.
     - run in a docker
     - run in a server later
 
+note: very simple login from frontend to backend now works
+i added cors to enable this
+also next time organized documents, codes and add example of .env file too
