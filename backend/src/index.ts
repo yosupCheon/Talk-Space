@@ -1,4 +1,4 @@
- import router from './routes';
+import router from './routes';
 import dotenv from 'dotenv';
 import { createUserTable, createRoomTable } from './db';
 import express, { Request, Response } from 'express';

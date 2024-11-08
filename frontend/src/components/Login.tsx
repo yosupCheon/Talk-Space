@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { login } from '../api';
+import io from 'socket.io-client';
 
 interface User { 
   name: string;
@@ -15,19 +16,15 @@ const Login: React.FC = () => {
   const handleLogin = async () => {
     const loginResult = await login({ username, password });
     //TODO: need to be tested after merged with backend
-    console.log(loginResult);
-    //TODO: navigate to correct place
-    navigate('/');
-  };
- 
-//   useEffect(() => {
-//     const fetchUsers = async () => {
-//       const data = await login();
-//       setUsers(data);
-//     };
-//     fetchUsers();
-//   }, []);
-
+    console.log("test"); 
+    if (loginResult.error) {
+      navigate('/login-fail');
+    } else {
+      navigate('/login-success');
+    }
+    navigate('/login-success');
+  }; 
+  
   return (
     <div>
       <h1>Login</h1>
@@ -50,3 +47,25 @@ const Login: React.FC = () => {
 };
 
 export default Login;
+
+//TODO: Review
+//   useEffect(() => {
+//     const fetchUsers = async () => {
+//       const data = await login();
+//       setUsers(data);
+//     };
+//     fetchUsers();
+//   }, []);
+
+//TODO: Socket Test Review
+// const test = () => {
+//   const socket = io('http://localhost:5000'); // Connect to the Socket.io server
+//   socket.on('connect', () => {
+//     console.log('Connected to Socket.io server');
+//   });
+//   socket.on('receiveMessage', (message) => {
+//     console.log('Message from server:', message);
+//   });
+//   // Emit a test message to the server
+//   socket.emit('sendMessage', 'Hello from the client!');
+// }

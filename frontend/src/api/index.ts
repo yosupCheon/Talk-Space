@@ -5,8 +5,13 @@ const api = axios.create({
 }); 
 
 export const login = async (userData: {username:string; password:string}) => {
+  try {
     const response = await api.post('login', userData);
+    console.log(response)
     return response.data;
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export const createUser = async (userData: { username: string; password: string }) => {
