@@ -10,8 +10,7 @@ const CreateUser: React.FC = () => {
 
   const handleCreateUser = async () => { 
     const creatUserResult = await createUser({username, password});
-    //TODO: after backend connection
-    //  redirect to login
+    //TODO: error check
     navigate('/login');
   };
 
