@@ -16,7 +16,7 @@ const Login: React.FC = () => {
     const res = await login({username, password});
     console.log(res);
     if (res.result === "success"){
-      navigate('/test-chat');
+      navigate('/chat-page');
     } else if (res.result === "failed"){
       alert('Login failed. Please check your username and password.');
     };

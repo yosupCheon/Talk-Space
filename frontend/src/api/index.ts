@@ -6,7 +6,7 @@ const api = axios.create({
 
 export const login = async (userData: {username:string; password:string}) => {
   try {
-    const response = await api.post('login', userData);
+    const response = await api.post('/v1/login', userData);
     console.log(response)
     return {"result":"success", "data":response.data};
   } catch (error) {  
@@ -15,6 +15,6 @@ export const login = async (userData: {username:string; password:string}) => {
 };
 
 export const createUser = async (userData: { username: string; password: string }) => {
-  const response = await api.post('/create-user', userData);
+  const response = await api.post('/v1/create-user', userData);
   return response.data;
 };

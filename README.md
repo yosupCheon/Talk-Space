@@ -10,6 +10,12 @@ This is a plan for Login-Chatting web app.
 - a user can login -> join a room
 - users can communicate real-time
 
+## To Run the Program
+- specify the .env file as .env-example
+- run "npm start" in both frontend and backend folder
+- then react frontend will start on the specified url+port (localhost)
+- direct to "url:port/login" to login or creat an account
+
 ## Tech Stacks
 #### Frontend
 - HTML/CSS/Javascript
@@ -110,22 +116,21 @@ This is a plan for Login-Chatting web app.
 - ~~pages for frontend~~
 
 ## TODO Coding:
+- Authentication
+    - JWT vs Session?
 - Frontend
     - React, Typescript, HTML/CSS/BootStart
-    - for pages and emit to server
+    - ~~for pages and emit to server~~
+    - two client communication through backend (socket.io)
 - Backend
-    - Node, Express, Typescript, RESTapi for server
-        - maybe use ngrok for testing
+    - ~~Node, Express, Typescript, RESTapi for server~~
+        - ~~maybe use ngrok for testing~~
         - web hosting, cloud, after testing...
-    - for res, rep
-    - for defining dB
-    - for communicating with dB
-    - WebSocket vs Socket(io) for live-chatting
+    - ~~for res, rep~~
+    - ~~for defining dB~~
+    - ~~for communicating with dB~~
+    - ~~WebSocket vs Socket(io) for live-chatting~~
 - Database
     - ~~MySQL~~
     - run in a docker
-    - run in a server later
-
-note: very simple login from frontend to backend now works
-i added cors to enable this
-also next time organized documents, codes and add example of .env file too
+    - ~~run in a server later~~

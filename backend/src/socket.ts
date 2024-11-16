@@ -5,8 +5,10 @@ export function initializeSocket(io: Server) {
     console.log('connected:', socket.id);
  
     socket.on('message', (msg: string) => {
-      console.log('received:', msg);
-      io.emit('message', msg); // broadcast 
+      const realMsg = JSON.parse(JSON.stringify(msg));
+      console.log('received:', realMsg['text']);
+      const req = {"text":realMsg['text']+" from server"};
+      io.emit('message', req); // broadcast 
     });
 
     socket.on('disconnect', () => {
