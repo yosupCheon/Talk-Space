@@ -19,7 +19,10 @@ const ChatApp: React.FC = () => {
 
     useEffect(() => {
         if (!socket.current) {
-            socket.current = io("http://localhost:8080");
+            //socket.current = io("http://localhost:8080"); 
+            socket.current = io("url",{
+                    transports: ["websocket"],  // explicit WebSocket
+                  });
             socket.current.on("connect", () => {
                 console.log("Connected to server 1:", socket.current?.id);
             });
