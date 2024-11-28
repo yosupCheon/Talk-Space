@@ -34,7 +34,9 @@ export async function createUserTable() {
     const createTableQuery = `
       CREATE TABLE IF NOT EXISTS room (
         id INT AUTO_INCREMENT PRIMARY KEY,
-        roomname VARCHAR(100),
+        host_name VARCHAR(100),
+        join_name VARCHAR(100),
+        room_name VARCHAR(100),
         occupied_count INT,
         CHECK (occupied_count <= 2),
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP

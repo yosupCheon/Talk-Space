@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { login } from '../api';
+import { login } from '../api'; 
+import { useUser } from './UserContext';
 
 interface User { 
   name: string;
@@ -8,26 +9,22 @@ interface User {
 }
 
 const Login: React.FC = () => {
+  const {setContextUsername} = useUser();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
   const handleLogin = async () => {
-    const loginResult = await login({ username, password });
-    //TODO: need to be tested after merged with backend
-    console.log(loginResult);
-    //TODO: navigate to correct place
-    navigate('/');
-  };
- 
-//   useEffect(() => {
-//     const fetchUsers = async () => {
-//       const data = await login();
-//       setUsers(data);
-//     };
-//     fetchUsers();
-//   }, []);
-
+    const res = await login({username, password});
+    console.log(res);
+    if (res.result === "success"){
+      setContextUsername(username);
+      navigate('/room-option');
+    } else if (res.result === "failed"){
+      alert('Login failed. Please check your username and password.');
+    };
+  }; 
+  
   return (
     <div>
       <h1>Login</h1>
@@ -49,4 +46,4 @@ const Login: React.FC = () => {
   );
 };
 
-export default Login;
+export default Login; 
