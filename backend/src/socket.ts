@@ -1,18 +1,28 @@
 import { Server, Socket } from 'socket.io';
 
 export function initializeSocket(io: Server) {
-  io.on('connection', (socket: Socket) => {
-    console.log('connected:', socket.id);
- 
-    socket.on('message', (msg: string) => {
-      const realMsg = JSON.parse(JSON.stringify(msg));
-      console.log('received:', realMsg['text']);
-      const req = {"text":realMsg['text']+" from server"};
-      io.emit('message', req); // broadcast 
+  io.on('connection', (socket) => {
+    console.log('A user connected:', socket.id);
+  
+    // Join a specific room
+    socket.on('join-room', (roomName: string) => {
+      socket.join(roomName);
+      console.log(`${socket.id} joined room: ${roomName}`);
+  
+      // Notify the room about the new user
+      socket.to(roomName).emit('user-joined', `User ${socket.id} joined the room`);
     });
-
+  
+    // Handle messages in a room
+    socket.on('send-message', ({ roomName, message }) => {
+      console.log(`room name: ${ roomName }`);
+      console.log(`received msg: ${ message }`);
+      io.to(roomName).emit('receive-message', { message, sender: socket.id });
+    });
+  
+    // Handle disconnect
     socket.on('disconnect', () => {
-      console.log('disconnected:', socket.id);
+      console.log('User disconnected:', socket.id);
     });
   });
 }
