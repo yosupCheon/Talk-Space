@@ -12,13 +12,11 @@ const App: React.FC = () => {
     <Router>
       <div className="App">
         <Routes> 
-          
             <Route path="/" element={<Navigate to="/login" replace />} />
             <Route path="/create-user" element={<CreateUser />} />
             <Route path="/login" element={<Login />} />
             <Route path="/room-option" element={<RoomOption />} />
-            <Route path="/chat-page" element={<ChatApp/>} />          
-
+            <Route path="/enter-room/:roomName" element={<ChatApp/>} />          
         </Routes>
       </div>
     </Router>

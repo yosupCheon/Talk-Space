@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef} from 'react';
 import {createRoom, joinRoom} from '../api';
 import {useUser} from './UserContext';
+import { useNavigate} from 'react-router-dom';
 
 const RoomOption: React.FC = () => {
     const {username} = useUser();
@@ -8,6 +9,7 @@ const RoomOption: React.FC = () => {
     const [roomType, setRoomType] = useState<'create' | 'join' | null> (null);
     const [roomName, setRoomName] = useState('');
     const popupRef = useRef<HTMLDivElement>(null);
+    const navigate = useNavigate();
 
     const openCreateRoomPopup = () => {
         setRoomType('create');
@@ -25,17 +27,26 @@ const RoomOption: React.FC = () => {
     }
 
     const handleSubmit = async () => {
-        if (roomName.trim()) {
-            if (roomType === 'create') {
+        if (roomName.trim()) { 
                 if (roomType === 'create') {
-                    await createRoom ({hostName : username ?? "unknown", roomName});
+                    try {
+                        await createRoom ({hostName : username ?? "unknown", roomName});
+                        navigate(`/enter-room/${roomName}`);
+                    } catch (err) {
+                        console.log('Failed: create a room');
+                    }
                   } else {
-                    await joinRoom ({joinName : username ?? "unknown", roomName});
+                    try {
+                        await joinRoom ({joinName : username ?? "unknown", roomName});
+                        navigate(`/enter-room/${roomName}`);
+                    } catch (err) {
+                        console.log('Failed: join a room')
+                    }
                   }
                 closePopup();
-            } else {
-                alert('Please enter a valid room name...');
-            }
+            
+        } else {
+            alert('Please enter a valid room name...');
         }
     };
     
@@ -59,7 +70,7 @@ const RoomOption: React.FC = () => {
                             onChange={(e)=> setRoomName(e.target.value)}
                             style={styles.input}
                         />
-                        <div style={styles.button}>
+                        <div style={styles.buttons}>
                             <button onClick={closePopup} style={styles.button}>
                                 Cancel
                             </button>
@@ -103,7 +114,7 @@ const styles: Record<string, React.CSSProperties> = {
     borderRadius: '4px',
   },
   buttons: {
-    display: 'flex',
+    display: 'flex', 
     justifyContent: 'space-between',
   },
   button: {

@@ -2,14 +2,15 @@ import React from 'react';
 
 type MessageScreenProps = {
     messages: string[];
+    showLeft: boolean;
 };
 
-const MessageScreen: React.FC<MessageScreenProps> = ({messages}) => {
-
+const MessageScreen: React.FC<MessageScreenProps> = ({messages, showLeft}) => {
     return (
         <div style={styles.screen}>
             {messages.map((message,index)=>(
-                <div key={index} style={styles.message}>
+                // TODO: show left and right when send and receive correctly
+                <div key={index} style={true?styles.messageSend:styles.messageReceived}>
                     {message}
                  </div>      
             ))}
@@ -24,13 +25,21 @@ const styles = {
         padding:'1rem',
         overflowY:'auto' as const,
         border: '1px solid #ccc',
-        marginBottom: "0.5rem"
+        marginBottom: '0.5rem'
     },
-    message: {
-        padding: "0.5 rem",
-        backgroundColor: "#f0f0f0",
+    messageSend: {
+        padding: "0.5rem",
         boarderRadius:'4px', 
         marginButton:'0.5rem',
+        display: 'flex',
+        justifyContent: 'flex-end'
+    },
+    messageReceived: {
+        padding: "0.5rem",
+        boarderRadius:'4px', 
+        marginButton:'0.5rem',
+        display: 'flex',
+        justifyContent: 'flex-start'
     },
 };
 
