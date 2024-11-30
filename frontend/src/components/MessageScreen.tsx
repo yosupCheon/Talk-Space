@@ -1,23 +1,21 @@
 import React from 'react';
 
 type MessageScreenProps = {
-    messages: string[];
-    showLeft: boolean;
+    messages: Map<string, boolean>;
 };
 
-const MessageScreen: React.FC<MessageScreenProps> = ({messages, showLeft}) => {
+const MessageScreen: React.FC<MessageScreenProps> = ({messages}) => {
     return (
         <div style={styles.screen}>
-            {messages.map((message,index)=>(
-                // TODO: show left and right when send and receive correctly
-                <div key={index} style={true?styles.messageSend:styles.messageReceived}>
+            {//messages.map((message,index)=>(
+                Array.from(messages).map(([message, sender], index) => ( 
+                <div key={index} style={sender?styles.messageSend:styles.messageReceived}>
                     {message}
                  </div>      
             ))}
-
         </div>
-    );
-};
+      );
+    };
 
 const styles = {
     screen: {
