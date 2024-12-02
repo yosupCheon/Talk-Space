@@ -1,0 +1,91 @@
+.background {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #1e4872, #2a7798);
+  }
+  
+  .elevated-box {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 300px;
+  }
+  
+  .elevated-box h2 {
+    margin-bottom: 1.5rem;
+    color: #333;
+  }
+  
+  .form-group {
+    margin-bottom: 1rem;
+    text-align: left;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 0.5rem; 
+    padding-left: 1rem; 
+    padding-right: 1rem; 
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    box-sizing: border-box; 
+  }
+  
+  .login-button,
+  .create-account-button,
+  .signup-button {
+    background-color: #307686;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .login-buttons {
+    display: flex;
+    justify-content: space-between;
+  } 
+  
+  .login-button {
+    background-color: #307686;
+  }
+  .login-button:hover {
+    background-color: #22aac8;
+  }
+  .login-button:active {
+    background-color: #598b7d;
+  }
+  
+  
+  .create-account-button {
+    background-color: #307686;
+  } 
+  .create-account-button:hover {
+    background-color: #22aac8;
+  }
+  .create-account-button:active {
+    background-color: #ae0db6;
+  }
+
+  
+  .signup-button:hover {
+    background-color: #22aac8;
+  }
+  .signup-button:active {
+    background-color: #064af8;
+  }
+  

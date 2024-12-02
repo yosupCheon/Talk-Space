@@ -1,0 +1,152 @@
+/* Page layout */
+.room-selection-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #1e4872, #2a7798);
+    background-color: rgba(29, 92, 179, 0.919);
+    margin: 0;
+  } 
+
+  .room-box {
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 350px;
+  }
+  
+  .room-title {
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #333333;
+  }
+  
+  /* buttons */
+  .room-button {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    margin: 1rem 0;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .create-room-button {
+    background-color: #4979ad;
+    color: #ffffff;
+  }
+  
+  .create-room-button:hover {
+    background-color: #0669d2;
+  }
+  
+  .join-room-button {
+    background-color: #21958f;
+    color: #ffffff;
+  }
+  
+  .join-room-button:hover {
+    background-color: #13a332;
+  }
+
+  .logout-button {
+    background-color: #c84a5f;
+    color: #ffffff;
+  }
+  
+  .logout-button:hover {
+    background-color: rgb(220, 10, 10);
+  }
+
+
+
+  .popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+
+  .popup-box {
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 300px;
+  }
+  
+  .popup-box h2 {
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333333;
+  }
+  
+  .popup-box input {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    box-sizing: border-box;
+  }
+  
+  .popup-buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .popup-confirm-button,
+  .popup-join-button,
+  .popup-cancel-button {
+    width: 30%;
+    padding: 0.8rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .popup-confirm-button {
+    background-color: #2b69ab;
+    color: #ffffff;
+  }
+  
+  .popup-confirm-button:hover {
+    background-color: #0056b3;
+  }
+
+  .popup-join-button {
+    background-color: #21958f;
+    color: #ffffff;
+  }
+  
+  .popup-join-button:hover {
+    background-color: #13a332;
+  }
+  
+  .popup-cancel-button {
+    background-color: #b74256;
+    color: #ffffff;
+  }
+  
+  .popup-cancel-button:hover {
+    background-color: #bb1e2e;
+  }
+  
