@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
-import Login from './components/Login';
-import CreateUser from './components/CreateUser';
-import ChatApp from './components/ChatApp'; 
-import RoomOption from './components/RoomOption';
+import Login from './components/Login/Login';
+import CreateUser from './components/Login/CreateUser';
+import ChatApp from './components/ChatScreen/ChatApp'; 
+import RoomOption from './components/RoomOption/RoomOption';
 import { UserProvider } from './components/UserContext';
 
 const App: React.FC = () => {

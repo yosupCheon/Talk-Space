@@ -23,8 +23,7 @@ const ChatApp: React.FC = () => {
             socket.current = io(url,{transports: ["websocket"],}); 
             console.log(`room name === ${roomName}`);
             socket.current.emit('join-room', roomName);
-
-            // Listen for 'message' event from server and update state
+            
             socket.current.on("receive-message", (msg) => {
                 const realMsg = JSON.parse(JSON.stringify(msg));
                 const msgMsg = realMsg['message'];
@@ -69,6 +68,7 @@ const styles = {
         flexDirection:"column" as const, 
         height: "100vh",
         width:"100%",
+        background: 'rgb(106, 90, 90)'
     },
 };
 

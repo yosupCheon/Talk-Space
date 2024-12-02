@@ -7,7 +7,8 @@ const router = express.Router();
 
 // Create a new user
 router.post('/login', async (req, res) => {
-  const { username, password } = req.body;
+  const username = req.body.username;
+  const password = req.body.password;
 
   if (!username || !password) {
     res.status(400).json({ error: 'Username and password are required' }); 
@@ -23,7 +24,7 @@ router.post('/login', async (req, res) => {
   if (user.password === password) {
     res.status(200).json({ message: 'Successfully Login', result: result });  
   } else {
-    res.status(500).json({ error: 'Failed to Login' });
+    //res.status(500).json({ error: 'Failed to Login' });
   } } catch (error) { 
     res.status(500).json({ error: 'Failed to Login' });
   }

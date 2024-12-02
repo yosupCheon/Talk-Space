@@ -27,7 +27,7 @@ const TextBar: React.FC<TextBarProps> = ({onSendMessage}) => {
             onChange={(e)=> setText(e.target.value)}
             onKeyDown={handleEnterPress}
             style={styles.input}
-            placeholder="Type your msg..."
+            placeholder="Type your message..."
         />
         <button onClick={handleSend} style={styles.button}>
             Send
@@ -41,6 +41,7 @@ const styles = {
       display: 'flex',
       padding: '0.5rem',
       borderTop: '1px solid #ccc',
+      background: 'rgb(147, 137, 137)'
     },
     input: {
       flex: 1,
@@ -53,7 +54,7 @@ const styles = {
       padding: '0.5rem 1rem',
       borderRadius: '4px',
       border: 'none',
-      backgroundColor: '#007bff',
+      backgroundColor: 'rgba(29, 92, 179, 0.919)',
       color: '#fff',
       cursor: 'pointer',
     },
