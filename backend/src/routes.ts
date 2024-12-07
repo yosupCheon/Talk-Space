@@ -6,27 +6,27 @@ import { hostname } from 'os';
 const router = express.Router();
 
 // Create a new user
-router.post('/login', async (req, res) => {
+router.post('/login', async (req, res): Promise<void> => {
   const username = req.body.username;
   const password = req.body.password;
 
   if (!username || !password) {
-    res.status(400).json({ error: 'Username and password are required' }); 
+    res.status(400).json({ error: 'Failed to login (code 0000)' }); 
   } 
-
-  try {
+ 
   const query = 'SELECT username, password FROM user WHERE username=?';
   const [result]:any = await connection.query(query, [username]);
   if (result.length === 0) { 
-    res.status(400).json({message: "Invalid username or password 1"});
+    res.status(400).json({error: "Failed to login (code 0001)"});
+    return;
   }
   const user = result[0];
   if (user.password === password) {
     res.status(200).json({ message: 'Successfully Login', result: result });  
+    return;
   } else {
-    //res.status(500).json({ error: 'Failed to Login' });
-  } } catch (error) { 
-    res.status(500).json({ error: 'Failed to Login' });
+    res.status(500).json({ error: 'Failed to Login (code 0002)' });
+    return;
   }
 });
 
