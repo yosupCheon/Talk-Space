@@ -2,12 +2,12 @@ import { Server, Socket } from 'socket.io';
 
 export function initializeSocket(io: Server) {
   io.on('connection', (socket) => {
-    console.log('A user connected:', socket.id);
+    //console.log('A user connected:', socket.id);
   
     // Join a specific room
     socket.on('join-room', (roomName: string) => {
       socket.join(roomName);
-      console.log(`${socket.id} joined room: ${roomName}`);
+      //console.log(`${socket.id} joined room: ${roomName}`);
   
       // Notify the room about the new user
       socket.to(roomName).emit('user-joined', `User ${socket.id} joined the room`);
@@ -15,14 +15,14 @@ export function initializeSocket(io: Server) {
   
     // Handle messages in a room
     socket.on('send-message', ({ roomName, message }) => {
-      console.log(`room name: ${ roomName }`);
-      console.log(`received msg: ${ message }`);
+      //console.log(`room name: ${ roomName }`);
+      //console.log(`received msg: ${ message }`);
       io.to(roomName).emit('receive-message', { message, sender: socket.id });
     });
   
     // Handle disconnect
     socket.on('disconnect', () => {
-      console.log('User disconnected:', socket.id);
+      //console.log('User disconnected:', socket.id);
     });
   });
 }

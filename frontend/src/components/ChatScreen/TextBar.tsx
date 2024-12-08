@@ -54,7 +54,7 @@ const styles = {
       padding: '0.5rem 1rem',
       borderRadius: '4px',
       border: 'none',
-      backgroundColor: 'rgba(29, 92, 179, 0.919)',
+      backgroundColor: '#4169E1',
       color: '#fff',
       cursor: 'pointer',
     },
