@@ -3,6 +3,30 @@
 ## Overview
 This is a plan for Login-Chatting web app.
 
+## Preview
+![Login](images/login.png)
+This is a login interface where users provide valid credentials to access their accounts.
+
+![Signup](images/signup.png)
+This is a sign-up interface where users can create an account. <br>
+Each username must be unique; if a username already exists, an error message will be displayed.
+
+![Option](images/room-option.png)
+This is an options page where logged-in users can either create a new room or join an existing one.
+
+<p align="center">
+  <img src="images/create-room.png" alt="Image 1" width="45%">
+  <img src="images/join-room.png" alt="Image 2" width="45%">
+</p>
+This is a popup overlay with options to create or join a room.
+<br><br>
+
+![User1](images/user1.png)
+This shows the appearance when a user sends and receives messages.
+
+![User2](images/user2.png)
+This shows how it appears on the other user's end.
+
 ## Fundamental User Story:
 - a user can login with their credential
 - a user can create an account
