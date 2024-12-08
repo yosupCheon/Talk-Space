@@ -43,22 +43,32 @@
     box-sizing: border-box; 
   }
   
-  .login-button,
-  .create-account-button,
-  .signup-button {
+  .login-buttons {
+    display: block;
+    justify-content: space-between;
+    padding: 0.5rem;
+  }
+
+  .login-button, 
+  .signup-button {  
     background-color: #307686;
+    width: 100%;
     color: white;
     border: none;
     padding: 0.5rem 1rem;
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
-  }
-  
-  .login-buttons {
-    display: flex;
-    justify-content: space-between;
   } 
+  
+  .create-account-button {
+    background: none;          /* Removes the default button background */
+    border: none;              /* Removes the default button border */
+    text-decoration: underline;/* Optional: Add an underline for effect */
+    padding: 1rem 0rem 0rem 0rem;                /* Remove padding */
+    font: inherit;             /* Inherit font styles from the parent element */
+    cursor: pointer;          /* Change cursor to pointer when hovered */
+  }
   
   .login-button {
     background-color: #307686;
@@ -70,17 +80,16 @@
     background-color: #598b7d;
   }
   
-  
+
   .create-account-button {
-    background-color: #307686;
+    background-color: #30768600;
   } 
   .create-account-button:hover {
-    background-color: #22aac8;
+    color: #22aac8;
   }
   .create-account-button:active {
-    background-color: #ae0db6;
+    color: #ae0db6;
   }
-
   
   .signup-button:hover {
     background-color: #22aac8;

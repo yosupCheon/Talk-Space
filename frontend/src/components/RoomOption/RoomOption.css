@@ -39,30 +39,30 @@
   }
   
   .create-room-button {
-    background-color: #4979ad;
+    background-color: #6cbb3c;
     color: #ffffff;
   }
-  
   .create-room-button:hover {
-    background-color: #0669d2;
+    background-color: #5a9b2f;
   }
   
+
   .join-room-button {
-    background-color: #21958f;
+    background-color: #00aaff;
     color: #ffffff;
   }
-  
   .join-room-button:hover {
-    background-color: #13a332;
+    background-color: #0099cc;
   }
 
+
   .logout-button {
-    background-color: #c84a5f;
+    background-color: #e31c3d;
     color: #ffffff;
   }
-  
+
   .logout-button:hover {
-    background-color: rgb(220, 10, 10);
+    background-color: #c11b2f;
   }
 
 
@@ -124,29 +124,28 @@
   }
   
   .popup-confirm-button {
-    background-color: #2b69ab;
+    background-color: #6cbb3c;
     color: #ffffff;
   }
-  
   .popup-confirm-button:hover {
-    background-color: #0056b3;
+    background-color: #5a9b2f;
   }
 
+
   .popup-join-button {
-    background-color: #21958f;
+    background-color: #00aaff;
     color: #ffffff;
   }
-  
   .popup-join-button:hover {
-    background-color: #13a332;
+    background-color: #0099cc;
   }
   
+
   .popup-cancel-button {
-    background-color: #b74256;
+    background-color: #e31c3d;
     color: #ffffff;
   }
-  
   .popup-cancel-button:hover {
-    background-color: #bb1e2e;
+    background-color: #c11b2f;
   }
   

@@ -9,15 +9,27 @@ const CreateUser: React.FC = () => {
   const [rePassword, setConfirmPassword] = useState('');
   const navigate = useNavigate();
 
+  const handleEnter = (event: React.KeyboardEvent) => {
+    if (event.key === 'Enter') {
+      handleCreateUser();
+    }
+  }
 
   const handleCreateUser = async () => { 
-    if (password !== rePassword) {
+    if (username === '' || password === '' || rePassword === '') {
+      alert('Failed: Emtpy fields detected...');
+    }
+    else if (password !== rePassword) {
       alert('Failed: Password not matching...');
       setPassword('');
       setConfirmPassword('');
     } else {
       const creatUserResult = await createUser({username, password});
-      navigate('/login');
+      if (creatUserResult.result == 'success') {
+        navigate('/login');
+      } else {
+        alert('Failed: username already exist');
+      } 
     }
   };
 
@@ -55,6 +67,7 @@ const CreateUser: React.FC = () => {
               value={rePassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
               placeholder="Re-enter password"
+              onKeyDown={handleEnter}
               required
             />
           </div>

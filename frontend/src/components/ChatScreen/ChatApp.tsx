@@ -3,6 +3,8 @@ import MessageScreen from './MessageScreen';
 import TextBar from './TextBar';
 import {io, Socket} from 'socket.io-client';
 import {useParams} from 'react-router-dom';
+import { useUser } from './../UserContext'; 
+import TopBar from './TopBar';
 
 //Define the type of events emitted by the server
 interface ServerToClientEvents {
@@ -14,6 +16,7 @@ interface ClientToServerEvents {
 } 
 
 const ChatApp: React.FC = () => {
+    const { username } = useUser();
     const { roomName } = useParams<{ roomName: string }>();  
     const socket = useRef<Socket>();
     const [messages, setMessages] = useState<Map<string, boolean>>(new Map());
@@ -55,7 +58,7 @@ const ChatApp: React.FC = () => {
 
     return (
         <div style={styles.container}>
-            {/* <MessageScreen messages={messages}/> */}
+            <TopBar roomName={roomName} userName={username}/>
             <MessageScreen messages={messages}/>
             <TextBar onSendMessage={handleSendMessage}/>
         </div>

@@ -14,6 +14,12 @@ const Login: React.FC = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
+
+  const handleEnter = (event: React.KeyboardEvent) => {
+    if (event.key === 'Enter') {
+      handleLogin();
+    }
+  }
  
   const handleLogin = async () => { 
     if (username==='' || password==='') {
@@ -53,6 +59,7 @@ const Login: React.FC = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             placeholder="Enter password"
+            onKeyDown={handleEnter}
             required
           />
           </div>
