@@ -1,4 +1,4 @@
-# Login-Chatting-App
+# Talk Space
 
 ## Overview
 This is a plan for Login-Chatting web app.
