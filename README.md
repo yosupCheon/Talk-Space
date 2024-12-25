@@ -1,7 +1,28 @@
 # Talk Space
 
 ## Overview
-This is a plan for Login-Chatting web app.
+This is Web Chatting Mesasnger that a user can login and chatting with a speific user.
+
+## Basic User Story:
+#### User Story 1: User Registration and Login
+- As a new user,
+- I want to be able to create an account with a unique username and password,
+- So that I can access the chat application.
+- As a registered user,
+- I want to be able to log in to the application using my existing credentials,
+- So that I can access my account and start chatting.
+#### User Story 2: Chat Room Creation
+- As a user,
+- I want to be able to create a new chat room,
+- So that I can have private conversations with specific users.
+#### User Story 3: Chat Room Joining
+- As a user,
+- I want to be able to join existing chat rooms,
+- So that I can participate in conversations with other users.
+#### User Story 4: Real-time Messaging
+- As a user in a chat room,
+- I want to be able to send and receive messages in real-time,
+- So that I can have immediate and engaging conversations with other users.
 
 ## Preview
 ![Login](images/login.png)
@@ -27,55 +48,38 @@ This shows the appearance when a user sends and receives messages.
 ![User2](images/user2.png)
 This shows how it appears on the other user's end.
 
-## Fundamental User Story:
-- a user can login with their credential
-- a user can create an account
-- a user can login -> create a room
-- a user can login -> join a room
-- users can communicate real-time
-
-## To Run the Program
-- specify the .env file as .env-example
-- run "npm start" in both frontend and backend folder
-- then react frontend will start on the specified url+port (localhost)
-- direct to "url:port/login" to login or creat an account
-
 ## Tech Stacks
-#### Frontend
-- HTML/CSS/Javascript
+#### Frontend 
 - React (Typescript)
 #### Backend
-- Node
-- Express
-- Typescript
-- Websocket.io
-- JWT Session (maybe later)
+- Node (Typescript/Express)
+- Socket.io
 #### Database
 - MySQL
 #### Server
-- host server, maybe cloud, but for now test on ngrok
-- what is nginx
+- TBD, but for now test on ngrok
+
+## To Run the Program
+- specify the .env file as .env-example
+- run "npm install" in both frontend and backend folder
+- DB should started
+- run "npm start" in both frontend and backend folder
 
 ## API Endpoints + Socket communication
 #### login (username=String, password=String)
 - POST request
-- check with db
-- return 200 and token session for later header?
-- else 400
+- return 200 if success else 400
 #### create_account (username=String, password=String)
 - POST request
-- save it to the db
 - return 200 if success else 400
 #### update_account (username=String, password=String)
 - PUT OR PATCH request
-- update a user info in db
 - return 200 if success else 400
 #### delete_account (username=String, password=String)
 - DELETE request
-- delete a user's account in db
 - return 200 if success else 400
 
-#### create_room (Websocket vs Socket io)
+#### create_room (Socket io)
 - io.on(connect)...
 - create room in db
 - socket.join()
@@ -100,61 +104,7 @@ This shows how it appears on the other user's end.
 | username    | STRING OR INT | NOT NULL     |
 | room_occupy| INT | CHECK (CONTAINS <= 2)|
 
-## Fronend Pages
-#### Login Page
-- greeting, "Welcome!"
-- username input field
-- password input field
-- login button
-- create new account button
-#### Creating New Account Page
-- new username field
-- new password field
-- re-enter password field
-- register button
-#### Board Page (Successfully Log-in)
-- creating a room option button
-- join a room option button
-#### Creating a Room Page
-- room number(name) input field
-- create a room button
-#### Joining a Room Page
-- room number input field
-- join a room button
-#### Chatting Room Page
-- friend's chat on left side
-- my chat on right side
-- message preview bar (typed inputs)
-- message sending button
-
 ## To Create DB
 - now running locally (or test with ngrok)
 - create .env to define details in db.ts
 - and connect db and the backend
-
-## TODO Documenting:
-- ~~Documenting use story and tech stacks~~
-- ~~create github project and push~~
-- ~~create and design API end-points~~
-- ~~database design~~
-- ~~pages for frontend~~
-
-## TODO Coding:
-- Authentication
-    - JWT vs Session?
-- Frontend
-    - React, Typescript, HTML/CSS/BootStart
-    - ~~for pages and emit to server~~
-    - two client communication through backend (socket.io)
-- Backend
-    - ~~Node, Express, Typescript, RESTapi for server~~
-        - ~~maybe use ngrok for testing~~
-        - web hosting, cloud, after testing...
-    - ~~for res, rep~~
-    - ~~for defining dB~~
-    - ~~for communicating with dB~~
-    - ~~WebSocket vs Socket(io) for live-chatting~~
-- Database
-    - ~~MySQL~~
-    - run in a docker
-    - ~~run in a server later~~
