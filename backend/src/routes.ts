@@ -6,7 +6,6 @@ import mysql from 'mysql2/promise';
 
 const router = express.Router();
 
-// Create a new user
 router.post('/login', async (req, res): Promise<void> => {
   const username = req.body.username;
   const password = req.body.password;
@@ -30,8 +29,7 @@ router.post('/login', async (req, res): Promise<void> => {
     return;
   }
 });
-
-// Create a new user
+ 
 router.post('/create-user', async (req, res): Promise<void> => {
   const { username, password } = req.body;
 

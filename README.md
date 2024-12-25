@@ -69,7 +69,7 @@ This shows how it appears on the other user's end.
 #### login (username=String, password=String)
 - POST request
 - return 200 if success else 400
-#### create_account (username=String, password=String)
+#### create-user (username=String, password=String)
 - POST request
 - return 200 if success else 400
 #### update_account (username=String, password=String)
@@ -78,17 +78,14 @@ This shows how it appears on the other user's end.
 #### delete_account (username=String, password=String)
 - DELETE request
 - return 200 if success else 400
-
-#### create_room (Socket io)
-- io.on(connect)...
-- create room in db
-- socket.join()
-- send msg
-#### join_room
-- io.on(connect)... 
-- socket.join()
-- send msg
-- if room is full -> msg:”room is full!”
+#### create-room (hostName=String, roomName=String)
+- POST request
+- return 200 if success else 400
+- validates room names against the database, and connects to the Socket.io server upon successful validation
+#### join_room (joinName=String, roomName=String)
+- PUT request 
+- return 200 if success else 400
+- validates room names against the database, and connects to the Socket.io server upon successful validation
 
 ## DATABASE Table (MySQL)
 ### User (add delete and update to api endpoints)
