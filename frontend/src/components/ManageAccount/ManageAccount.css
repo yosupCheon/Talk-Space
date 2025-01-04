@@ -1,0 +1,112 @@
+.background {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #1e4872, #2a7798);
+  }
+  
+  .elevated-box {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 300px;
+  }
+  
+  .elevated-box h2 {
+    margin-bottom: 1.5rem;
+    color: #333;
+  }
+  
+  .form-group {
+    margin-bottom: 1rem;
+    text-align: left;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 0.5rem; 
+    padding-left: 1rem; 
+    padding-right: 1rem; 
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    box-sizing: border-box; 
+  }
+  
+  .login-buttons {
+    display: block;
+    justify-content: space-between;
+    padding: 0.5rem;
+  }
+
+  .login-button, 
+  .signup-button {  
+    background-color: #307686;
+    width: 100%;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  } 
+  
+  .create-account-button {
+    background: none;          /* Removes the default button background */
+    border: none;              /* Removes the default button border */
+    text-decoration: underline;/* Optional: Add an underline for effect */
+    padding: 1rem 0rem 0rem 0rem;                /* Remove padding */
+    font: inherit;             /* Inherit font styles from the parent element */
+    cursor: pointer;          /* Change cursor to pointer when hovered */
+  }
+  
+  .login-button {
+    background-color: #307686;
+  }
+  .login-button:hover {
+    background-color: #22aac8;
+  }
+  .login-button:active {
+    background-color: #598b7d;
+  }
+  
+
+  .create-account-button {
+    background-color: #30768600;
+  } 
+  .create-account-button:hover {
+    color: #22aac8;
+  }
+  .create-account-button:active {
+    color: #ae0db6;
+  }
+  
+  .signup-button:hover {
+    background-color: #22aac8;
+  }
+  .signup-button:active {
+    background-color: #064af8;
+  } 
+
+  .button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.big-button {
+    padding: 20px 40px;
+    font-size: 18px;
+    cursor: pointer;
+    margin: 0 10px; /* Add margin to separate the buttons */
+}

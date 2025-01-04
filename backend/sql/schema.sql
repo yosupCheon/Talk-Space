@@ -1,0 +1,20 @@
+CREATE DATABASE IF NOT EXISTS chat;
+USE chat;
+
+CREATE TABLE IF NOT EXISTS `user` (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(50),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
+CREATE TABLE IF NOT EXISTS `room` (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    users JSON,
+    room_name VARCHAR(100) NOT NULL UNIQUE,
+    occupied_count INT,
+    CHECK (occupied_count <= 2),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+

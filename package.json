@@ -4,6 +4,8 @@
     "socket.io": "^4.8.1"
   },
   "devDependencies": {
-    "@types/cors": "^2.8.17"
+    "@types/cors": "^2.8.17",
+    "@types/node": "^22.10.5",
+    "typescript": "^5.7.2"
   }
 }

@@ -1,20 +1,20 @@
-import router from './routes';
+//import routers from './routes/routes';
+import routerUser from './routes/user-routes';
+import routerRoom from './routes/room-routes';
 import dotenv from 'dotenv';
-import { createUserTable, createRoomTable } from './db';
 import express, { Request, Response } from 'express';
 import http from 'http';
 import { Server } from 'socket.io';
 import { initializeSocket } from './socket';
 import cors from 'cors';
 
-dotenv.config();
-createUserTable();
-createRoomTable();
+dotenv.config(); 
 
 const app = express(); 
 app.use(cors()); 
 app.use(express.json());
-app.use('/v1', router);
+app.use('/user', routerUser);
+app.use('/room', routerRoom);
  
 //Socket
 const server = http.createServer(app);

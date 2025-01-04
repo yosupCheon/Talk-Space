@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { createRoom, joinRoom } from '../../api';
+import { createRoom, joinRoom } from '../../api/room';
 import { useUser } from '../UserContext';
 import { useNavigate } from 'react-router-dom';
 import './RoomOption.css';
@@ -13,7 +13,7 @@ const RoomOption: React.FC = () => {
   const handleOpenPopup = (popupType: 'create' | 'join') => {
     setRoomName('');
     setShowPopup(popupType);
-  };
+  }; 
 
   const handleEnter = (event: React.KeyboardEvent) => {
     if (event.key === 'Enter') {
@@ -74,6 +74,12 @@ const RoomOption: React.FC = () => {
           className="room-button logout-button"
         >
           Logout
+        </button>
+        <button
+          className="room-button manage-button"
+          onClick={() => navigate('/manage-account')}
+        >
+          Manage Account
         </button>
       </div>
       {showPopup && (
