@@ -55,6 +55,15 @@
     background-color: #0099cc;
   }
 
+  .manage-button {
+    background-color: #4b0a15;
+    color: #ffffff;
+  }
+
+  .manage-button:hover {
+    background-color: #821421;
+  }
+
 
   .logout-button {
     background-color: #e31c3d;

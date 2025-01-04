@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { createUser } from '../../api';
+import { createUser } from '../../api/user';
 import './UserInput.css'
 
 const CreateUser: React.FC = () => {

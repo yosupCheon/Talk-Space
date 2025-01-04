@@ -4,6 +4,7 @@ import Login from './components/Login/Login';
 import CreateUser from './components/Login/CreateUser';
 import ChatApp from './components/ChatScreen/ChatApp'; 
 import RoomOption from './components/RoomOption/RoomOption';
+import ManageAccount from './components/ManageAccount/ManageAccount';
 import { UserProvider } from './components/UserContext';
 
 const App: React.FC = () => {
@@ -16,6 +17,7 @@ const App: React.FC = () => {
             <Route path="/create-user" element={<CreateUser />} />
             <Route path="/login" element={<Login />} />
             <Route path="/room-option" element={<RoomOption />} />
+            <Route path="/manage-account" element={<ManageAccount/>} />          
             <Route path="/enter-room/:roomName" element={<ChatApp/>} />          
         </Routes>
       </div>

@@ -46,14 +46,14 @@ router.post('/create-user', async (req, res): Promise<void> => {
 });
 
 router.put('/update-user', async (req, res): Promise<void> => {
-  const { username, password } = req.body;
-  if (!username || !password) {
+  const { username, newPassword } = req.body;
+  if (!username || !newPassword) {
     res.status(400).json({ error: 'Username and password are required' });
     return;
   }
   try {
     const query = 'UPDATE user SET password=? WHERE username=?';
-    const [result] = await connection.query(query, [password, username]);
+    const [result] = await connection.query(query, [newPassword, username]);
   } catch (error) {
     res.status(500).json({ error: 'Failed to update user' });
     return;

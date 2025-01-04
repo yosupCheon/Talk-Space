@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { exitRoom } from '../../api';
+import { exitRoom } from '../../api/room';
 
 interface RoomProps {
     userName: string | null;
