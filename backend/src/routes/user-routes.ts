@@ -39,6 +39,7 @@ router.post('/create-user', async (req, res): Promise<void> => {
     const [result] = await connection.query(query, [username, password]);
   } catch (error) {
     res.status(500).json({ error: 'Failed to add user' });
+    console.log(error);
     return;
   }
   res.status(201).json({ message: 'Successfully User created!' });

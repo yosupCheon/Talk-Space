@@ -2,7 +2,6 @@
 import routerUser from './routes/user-routes';
 import routerRoom from './routes/room-routes';
 import dotenv from 'dotenv';
-import { createUserTable, createRoomTable } from './db';
 import express, { Request, Response } from 'express';
 import http from 'http';
 import { Server } from 'socket.io';
@@ -14,8 +13,8 @@ dotenv.config();
 const app = express(); 
 app.use(cors()); 
 app.use(express.json());
-app.use('/v1', routerUser);
-app.use('/v1', routerRoom);
+app.use('/user', routerUser);
+app.use('/room', routerRoom);
  
 //Socket
 const server = http.createServer(app);
