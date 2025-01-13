@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { exitRoom } from '../../api/room';
+import { useUser } from '../UserContext';
 
 interface RoomProps {
     userName: string | null;
@@ -8,12 +9,13 @@ interface RoomProps {
 }
 
 const TopBar: React.FC<RoomProps> = ({userName, roomName}) => {
+    const { token } = useUser(); 
     const navigate = useNavigate();
     const username = userName as string;
     const roomname = roomName as string;
 
     const handleExit = async () => {
-        const response = await exitRoom({username, roomname})
+        const response = await exitRoom({username, roomname}, token!)
         navigate('/room-option');
     }; 
      
@@ -33,7 +35,7 @@ const TopBar: React.FC<RoomProps> = ({userName, roomName}) => {
 }
 
 const styles = {
-    container: {
+    container: { 
       display: 'flex',
       padding: '0.5rem',
       borderTop: '1px solid #ccc',

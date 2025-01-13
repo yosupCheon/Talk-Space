@@ -1,10 +1,14 @@
 import { Router } from 'express';
 import connection from '../db';
 import mysql from 'mysql2/promise';
+import { isValidToken} from './jwt-helper';
 
 const router = Router();
 
 router.post('/create-room', async (req, res): Promise<void> => {
+    if (!isValidToken(req.headers.authorization as string)){
+        res.status(401).json({ error: 'Invalid token' });
+      };
     const { hostName, roomName } = req.body;
     const user = JSON.stringify([hostName]);
     try {
@@ -19,6 +23,9 @@ router.post('/create-room', async (req, res): Promise<void> => {
 });
 
 router.put('/join-room', async (req, res): Promise<void> => {
+    if (!isValidToken(req.headers.authorization as string)){
+        res.status(401).json({ error: 'Invalid token' });
+      };
     const { joinName, roomName } = req.body;
     try {
         const query = `
@@ -43,6 +50,9 @@ router.put('/join-room', async (req, res): Promise<void> => {
 });
 
 router.put('/exit-room', async (req, res): Promise<void> => {
+    if (!isValidToken(req.headers.authorization as string)){
+        res.status(401).json({ error: 'Invalid token' });
+      };
     const { username, roomname } = req.body;
     const query = `
     UPDATE room

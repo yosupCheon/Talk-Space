@@ -55,9 +55,11 @@ This shows how it appears on the other user's end.
 - Node (Typescript/Express)
 - Socket.io
 #### Database
-- MySQL
-#### Server
-- TBD, but for now test on ngrok
+- MySQL (Docker)
+- Referred to [Stack Overflow post](https://stackoverflow.com/questions/29145370/how-can-i-initialize-a-mysql-database-with-schema-in-a-docker-container?noredirect=1&lq=1) and [official docker documentation](https://docs.docker.com/reference/dockerfile/) on how to create a DB schema and included this DB schema in the Dockerfile so that I can build a Docker image with the database schema preloaded.
+### Authentication
+- JWT
+- Followed the code segment from the npm library [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken) to generate and verify tokens
 
 ## To Run the Program
 - specify the .env file as .env-example

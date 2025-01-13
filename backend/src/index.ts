@@ -6,9 +6,9 @@ import express, { Request, Response } from 'express';
 import http from 'http';
 import { Server } from 'socket.io';
 import { initializeSocket } from './socket';
-import cors from 'cors';
+import cors from 'cors'; 
 
-dotenv.config(); 
+dotenv.config();    
 
 const app = express(); 
 app.use(cors()); 

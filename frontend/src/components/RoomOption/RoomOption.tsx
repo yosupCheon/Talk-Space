@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import './RoomOption.css';
 
 const RoomOption: React.FC = () => {
-  const { username } = useUser();
+  const { username, token } = useUser(); 
   const [showPopup, setShowPopup] = useState<'create' | 'join' | null>(null);
   const [roomName, setRoomName] = useState('');
   const navigate = useNavigate();
@@ -26,7 +26,7 @@ const RoomOption: React.FC = () => {
       alert('Failed: room name is empty...')
     } else if (showPopup === 'create') {
       try {
-        const response = await createRoom({ hostName: username ?? "unknown", roomName });
+        const response = await createRoom({ hostName: username ?? "unknown", roomName }, token!);
         if (response.result === 'success') {
           navigate(`/enter-room/${roomName}`);
         } else {
@@ -37,7 +37,7 @@ const RoomOption: React.FC = () => {
       }
     } else {
       try {
-        const response = await joinRoom({ joinName: username ?? "unknown", roomName });
+        const response = await joinRoom({ joinName: username ?? "unknown", roomName }, token!);
         if (response.result === 'success') {
           navigate(`/enter-room/${roomName}`);
         } else {
@@ -51,7 +51,11 @@ const RoomOption: React.FC = () => {
 
   // TODO: close the popup if outsdie is clicked
   const handleOutsideClick = (event: MouseEvent) => { };
-  useEffect(() => { }, []);
+  useEffect(() => {
+    if (token === null) {
+      navigate('/login');
+    }
+  }, []);
 
   return (
     <div className="room-selection-page">

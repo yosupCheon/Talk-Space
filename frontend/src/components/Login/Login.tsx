@@ -11,6 +11,7 @@ interface User {
 
 const Login: React.FC = () => {
   const {setContextUsername} = useUser();
+  const {setContextToken} = useUser();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
@@ -28,7 +29,8 @@ const Login: React.FC = () => {
       const res = await login({username, password}); 
       if (res.result === "success"){
         setContextUsername(username);
-       navigate('/room-option');
+        setContextToken(res.token);
+        navigate('/room-option');
       } else if (res.result === "failed"){
         alert('Login failed. Please check your username and password.');
       }
