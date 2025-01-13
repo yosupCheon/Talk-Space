@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { deleteUser } from '../../api/user'; 
 import { useUser } from '../UserContext';
 import { useNavigate } from 'react-router-dom';
@@ -6,7 +6,7 @@ import './ManageAccount.css'
 import PasswordModal from './PasswordModal';
 
 const ManageAccount: React.FC = () => {
-    const { username } = useUser();
+    const { username, token } = useUser();
     const navigate = useNavigate();
     const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -19,7 +19,7 @@ const ManageAccount: React.FC = () => {
 
     const deleteAccount = async () => { 
         if (window.confirm("Are you sure you want to delete your account?")) {
-            const res = await deleteUser({username:username ?? "unknown"}); 
+            const res = await deleteUser({username:username ?? "unknown"}, token!); 
             if (res.result === "success"){
                 navigate('/login');
             } else if (res.result === "failed"){
@@ -27,6 +27,12 @@ const ManageAccount: React.FC = () => {
             }
         }
     }
+    
+    useEffect(() => {
+        if (token === null) {
+            navigate('/login');
+        }
+    }, []);
 
     return (
         <div className="background">

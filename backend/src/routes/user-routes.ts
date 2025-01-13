@@ -1,7 +1,11 @@
 import { Router } from 'express';
-import connection from '../db';
+import connection from '../db';  
+import jwt from 'jsonwebtoken'; 
+import { isValidToken} from './jwt-helper';
+//import dotenv from 'dotenv';
 
-const router = Router();
+const router = Router(); 
+ 
 
 router.post('/login', async (req, res): Promise<void> => {
   const username = req.body.username;
@@ -19,7 +23,8 @@ router.post('/login', async (req, res): Promise<void> => {
   }
   const user = result[0];
   if (user.password === password) {
-    res.status(200).json({ message: 'Successfully Login', result: result });
+    var token = jwt.sign({ username: user.username }, process.env.TOKEN_SECRET as string);
+    res.status(200).json({ message: 'Successfully Login', token: token, result: result });
     return;
   } else {
     res.status(500).json({ error: 'Failed to Login (code 0002)' });
@@ -45,8 +50,12 @@ router.post('/create-user', async (req, res): Promise<void> => {
   res.status(201).json({ message: 'Successfully User created!' });
 });
 
+
 router.put('/update-user', async (req, res): Promise<void> => {
-  const { username, newPassword } = req.body;
+  const { username, newPassword, } = req.body; 
+  if (!isValidToken(req.headers.authorization as string)){
+    res.status(401).json({ error: 'Invalid token' });
+  };
   if (!username || !newPassword) {
     res.status(400).json({ error: 'Username and password are required' });
     return;
@@ -63,6 +72,9 @@ router.put('/update-user', async (req, res): Promise<void> => {
 
 router.delete('/delete-user', async (req, res): Promise<void> => {
   const username = req.body.username;
+  if (!isValidToken(req.headers.authorization as string)){
+    res.status(401).json({ error: 'Invalid token' });
+  };
   if (!username) {
     res.status(400).json({ error: 'Username is required' });
     return;

@@ -2,7 +2,7 @@ import React, {useState, useEffect, useRef} from 'react';
 import MessageScreen from './MessageScreen';
 import TextBar from './TextBar';
 import {io, Socket} from 'socket.io-client';
-import {useParams} from 'react-router-dom';
+import {useParams, useNavigate} from 'react-router-dom';
 import { useUser } from './../UserContext'; 
 import TopBar from './TopBar';
 
@@ -16,12 +16,17 @@ interface ClientToServerEvents {
 } 
 
 const ChatApp: React.FC = () => {
-    const { username } = useUser();
+    const { username, token } = useUser();
     const { roomName } = useParams<{ roomName: string }>();  
     const socket = useRef<Socket>();
     const [messages, setMessages] = useState<Map<string, boolean>>(new Map());
     const url = "http://localhost:8080";
+    const navigate = useNavigate();
+
     useEffect(() => {
+        if (token === null) {
+            navigate('/login');
+        }
         if (!socket.current) { 
             socket.current = io(url,{transports: ["websocket"],}); 
             console.log(`room name === ${roomName}`);
@@ -57,7 +62,7 @@ const ChatApp: React.FC = () => {
     }
 
     return (
-        <div style={styles.container}>
+        <div style={styles.container}> 
             <TopBar roomName={roomName} userName={username}/>
             <MessageScreen messages={messages}/>
             <TextBar onSendMessage={handleSendMessage}/>
