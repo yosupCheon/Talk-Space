@@ -2,24 +2,30 @@ import React, {createContext, useState, useContext, ReactNode, useEffect} from "
 
 interface UserContextType{
     username: string | null;
+    token: string | null;
     setContextUsername: (username: string) => void;
+    setContextToken: (token: string) => void;
 }
 
 const UserContext = createContext<UserContextType | undefined> (undefined);
 
 export const UserProvider: React.FC<{ children: ReactNode}> =({children}) => {
    const [username, setContextUsername] = useState<string | null>(localStorage.getItem('username')||null);
+   const [token, setContextToken] = useState<string | null>(localStorage.getItem('token')||null);
 
     useEffect (() => {
         if (username) {
             localStorage.setItem('username', username);
         }
-    }, [username]);
+        if (token) {
+            localStorage.setItem('token', token);
+        }
+    }, [username, token]);
 
    return (
-    <UserContext.Provider value={{username, setContextUsername}}>
+    <UserContext.Provider value={{username, token, setContextUsername, setContextToken}}>
         {children}
-    </UserContext.Provider>
+    </UserContext.Provider> 
    );
 
 };
@@ -32,3 +38,4 @@ export const useUser = (): UserContextType =>{
     }
     return context;
 }
+ 

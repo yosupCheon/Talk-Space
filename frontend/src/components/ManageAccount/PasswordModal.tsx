@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './PasswordModal.css';
 import { useUser } from '../UserContext';
 import { updateUser } from '../../api/user';
@@ -11,15 +11,21 @@ interface PasswordModalProps {
 }
 
 const PasswordModal: React.FC<PasswordModalProps> = ({ isOpen, onClose, onSave }) => {
-    const { username } = useUser();
+    const { username , token} = useUser();
     const navigate = useNavigate();
     const [newPassword, setNewPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
 
+    useEffect(() => {
+        if (token === null) {
+          navigate('/login');
+        }
+      }, []);
+
     const handleSave = async () => {
         if (newPassword === confirmPassword) {
             const res = await updateUser({ 
-                username: username ?? "unknown",newPassword: newPassword});
+                username: username ?? "unknown",newPassword: newPassword}, token!);
                 if (res.result === "success"){
                     alert('Successfully updated! Please login again');
                     navigate('/login');
